@@ -54,27 +54,14 @@ public final class newjsp_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\n");
       out.write("        \n");
 
-// 連想配列の作成
+// 連想配列の作成"1"に"AAA", "hello"に"world", "soeda"に"33", "20"に"20"
 HashMap<String, String> prof =
             new HashMap<String, String>();
 // 要素の追加
-prof.put("name00", "添田");
-prof.put("name01", "依田");
-// 要素の更新 -- 添田を林に
-prof.put("name00", "林");
-// 要素の取得 -- Name:林と表示
-String name ="<br>Name:";
-out.print(name + prof.get("name00"));
-out.print(name + prof.get("name01"));
-// 要素数取得 -- 1つの要素があるので、1と表示
-out.print(prof.size());
-
-for(int i= 0;prof.size()>i;i++){
-    out.print(name + prof.get(i));
-}
-
-// 要素の削除 -- 要素の削除は、キーで。nameを削除。
-prof.remove("name");
+prof.put("1", "AAA");
+prof.put("hello", "world");
+prof.put("soeda", "33");
+prof.put("20", "20");
 
       out.write("\n");
       out.write("    </body>\n");
