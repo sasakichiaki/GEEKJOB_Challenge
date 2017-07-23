@@ -20,7 +20,7 @@ public class ResultData implements Serializable {
 public Date getD() {
 return d;
 }
-    
+
 public void setD(Date d) {
 this.d=d;
 }
