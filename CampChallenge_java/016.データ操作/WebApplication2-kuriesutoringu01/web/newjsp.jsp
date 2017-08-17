@@ -22,7 +22,7 @@
 
             <p><input type="radio" name="type" value="3">その他</p>
             <input type="submit" value="送信">
-            <input type="reset" value="リセット">
+            <input type="reset" value="リセット"></form>
 
 
             <%

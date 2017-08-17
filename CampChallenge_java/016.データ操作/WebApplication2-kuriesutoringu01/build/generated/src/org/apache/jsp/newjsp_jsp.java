@@ -63,7 +63,7 @@ public final class newjsp_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("            <p><input type=\"radio\" name=\"type\" value=\"3\">その他</p>\n");
       out.write("            <input type=\"submit\" value=\"送信\">\n");
-      out.write("            <input type=\"reset\" value=\"リセット\">\n");
+      out.write("            <input type=\"reset\" value=\"リセット\"></form>\n");
       out.write("\n");
       out.write("\n");
       out.write("            ");

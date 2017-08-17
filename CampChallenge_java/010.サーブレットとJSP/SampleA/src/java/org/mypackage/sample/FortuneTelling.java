@@ -38,7 +38,11 @@ public class FortuneTelling extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        
         try (PrintWriter out = response.getWriter()) {
+        
+            
             final String result = "/WEB-INF/FortuneTellingResult.jsp";
             String luckList[] = {"大吉", "中吉", "吉", "半吉", "末小吉", "凶", "小凶", "半凶", "末凶", "凶", "大凶"};
             Random rand = new Random();
