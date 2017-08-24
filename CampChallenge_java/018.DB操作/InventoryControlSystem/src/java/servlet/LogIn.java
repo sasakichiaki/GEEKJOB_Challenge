@@ -54,17 +54,30 @@ public class LogIn extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String logout = request.getParameter("logout");
-        if(logout == null){
-            RequestDispatcher logIn = request.getRequestDispatcher("/WEB-INF/login.jsp");
-            logIn.forward(request, response); 
-        } else {
-            // HttpSessionインスタンスの取得
-            HttpSession session = request.getSession();
+        
+        // HttpSessionインスタンスの取得
+        HttpSession session = request.getSession();
+        Login sessiondata = (Login)session.getAttribute("loginSession");
+        
+        String logout = request.getParameter("action");
+        
+        if(logout != null){
             // セッションスコープからインスタンスを削除
             session.removeAttribute("loginSession");
             RequestDispatcher logIn = request.getRequestDispatcher("/WEB-INF/login.jsp");
             logIn.forward(request, response); 
+        } else if (sessiondata != null){
+            String kakunin = sessiondata.getStatus();
+            if (kakunin.equals("admin")) {
+                RequestDispatcher logInAdmin = request.getRequestDispatcher("/WEB-INF/admin.jsp");
+                logInAdmin.forward(request, response);
+            } else if (kakunin.equals("vender")){
+                RequestDispatcher logInAdmin = request.getRequestDispatcher("/WEB-INF/vender.jsp");
+                logInAdmin.forward(request, response);
+            }
+        } else {
+                RequestDispatcher logIn = request.getRequestDispatcher("/WEB-INF/login.jsp");
+                logIn.forward(request, response); 
         }
     }
 
@@ -85,6 +98,7 @@ public class LogIn extends HttpServlet {
         String resultpassword = request.getParameter("password");
 
         //もしloginidがnullなら入力フォームを表示
+        
         if (resultloginid.equals("")) {
             RequestDispatcher logIn = request.getRequestDispatcher("/WEB-INF/login.jsp");
             logIn.forward(request, response);
@@ -98,8 +112,6 @@ public class LogIn extends HttpServlet {
             
             //// HttpSessionインスタンスの取得
             HttpSession session = request.getSession();
-            
-            
             
             //データベース接続
             Connection db_con = null;//①DBの接続を管理するConnectionクラスの変数を用意
@@ -118,6 +130,7 @@ public class LogIn extends HttpServlet {
                 
                 while (db_data.next()) {
                     check1 = db_data.getString("status");
+                    loginSession.setStatus(check1);
                 }
 
                 switch (check1) {

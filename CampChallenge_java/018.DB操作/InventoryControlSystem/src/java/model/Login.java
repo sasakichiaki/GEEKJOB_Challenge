@@ -12,6 +12,7 @@ package model;
 public class Login implements java.io.Serializable {
     private String loginId;
     private String loginPassword;
+    private String status;
 
     public Login() {
 
@@ -36,6 +37,14 @@ public class Login implements java.io.Serializable {
 
     public void setLoginPassword(String loginPassword) {
         this.loginPassword = loginPassword;
+    }
+    
+        public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }

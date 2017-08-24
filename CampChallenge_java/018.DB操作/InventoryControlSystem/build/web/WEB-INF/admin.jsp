@@ -355,10 +355,10 @@
                 </header>
                 <!-- サイドメニュー-->
                 <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-                    <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><i class="fa fa-home" aria-hidden="true"></i></i>Home</a>
-                    <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><i class="fa fa-id-card-o" aria-hidden="true"></i></i>ユーザー一覧</a>
-                    <a class="mdl-navigation__link" href="goods.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><i class="fa fa-th-list" aria-hidden="true"></i></i>商品一覧</a>
-                    <a class="mdl-navigation__link" href="newgoods.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><i class="fa fa-plus-square-o" aria-hidden="true"></i></i>商品登録登録</a>
+                    <a class="mdl-navigation__link" href="UserAdd?action=click"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><i class="fa fa-home" aria-hidden="true"></i></i>Home</a>
+                    <a class="mdl-navigation__link" href="UserAdd?action=click"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><i class="fa fa-id-card-o" aria-hidden="true"></i></i>ユーザー登録</a>
+                    <a class="mdl-navigation__link" href="Goodsup?action=click"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><i class="fa fa-th-list" aria-hidden="true"></i></i>商品一覧</a>
+                    <a class="mdl-navigation__link" href="Goods?action=click"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><i class="fa fa-plus-square-o" aria-hidden="true"></i></i>商品登録登録</a>
 
                     <!-- アイコンつきメニューのテンプレート
             このサイトからグーグル公式のアイコンが検索できる：https://material.io/icons/
@@ -375,7 +375,19 @@
                     </div>
                     <!-- .page-content-title -->
                     <div class="page-content-body">
-                        <p>登録情報の一覧が表示されるスペース</p>
+            <form action="UserAdd" method="post">
+            <p class=userForm>status:<select name="status">
+                    <option value="admin">admin</option>
+                    <option value="vender">vender</option>
+                </select>
+            <p class=userForm>name:<input type="text" name="name" size="20" maxlength="20"></p>
+            <p class=userForm>loginID:<input type="text" name="loginID" size="20" maxlength="20"></p>
+            <p class=userForm>passWord:<input type="text" name="passWord" size="20" maxlength="20"></p>
+            <p class=userForm>メールアドレス：<input type="email" name="email" size="30" maxlength="40"></p>
+            <input type="submit" value="　登録　"><input type="reset" value="リセット">
+            </p>
+          </form>
+                        
                     </div>
                     <!-- .page-content-body -->
                 </div>
